@@ -1,4 +1,5 @@
 // Requiring module
+const { response } = require('express');
 const express = require('express');
 
 // Creating express object
@@ -6,8 +7,19 @@ const app = express();
 
 // Handling GET request
 app.get('/', (Request, Response) => {
-    Response.send('A simple Node App is '
-    + 'running on this server')
+    Response.send('Uma simples API Node está rodando no servidor') // Enviando essa String para ser exibida
+    Response.end() //
+})
+
+// Rota Home
+app.get('/home',(Request, Response) => {
+    Response.send('Página Home')
+    Response.end()
+})
+
+// Rota Contact
+app.get('/contact',(Request, Response)=> {
+    Response.send('Essa é a página onde ficaria o Contato')
     Response.end()
 })
 
@@ -15,4 +27,4 @@ app.get('/', (Request, Response) => {
 const PORT = process.env.PORT||5000
 
 // Server Setup
-app.listen(PORT,console.log(`Server started on port ${PORT}`));
+app.listen(PORT,console.log(`Servidor iniciado na porta ${PORT}.`));
