@@ -1,5 +1,4 @@
 // Requiring module
-const { response } = require('express');
 const express = require('express');
 
 // Creating express object
