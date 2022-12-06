@@ -23,21 +23,21 @@ app.get('/clientes/:id',(Request, Response)=>{
 
 
 app.put('/clientes/:id',(Request, Response)=>{
-    Response.setHeader("Access-Control-Allow-Origin","*"); // Qualquer host que acessar minha API vai ser permitido
-    Response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');// Vou permitir o método GET, PUT, POST DELETE
+    Response.setHeader("Access-Control-Allow-Origin","*");
+    Response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
     return connect.execSQLQuery("update cliente set nome='"+Request.body.nome+"' where id="+Request.params.id, Response);
 }); 
 
 app.post('/clientes/',(Request, Response)=>{
-    Response.setHeader("Access-Control-Allow-Origin","*"); // Qualquer host que acessar minha API vai ser permitido
-    Response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');// Vou permitir o método GET, PUT, POST DELETE
+    Response.setHeader("Access-Control-Allow-Origin","*"); 
+    Response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
     return connect.execSQLQuery("insert into cliente (nome) value('"+Request.body.nome+"')", Response);
 });
 
 // OK
 app.delete('/clientes/:id',(Request, Response)=>{
-    Response.setHeader("Access-Control-Allow-Origin","*"); // Qualquer host que acessar minha API vai ser permitido
-    Response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');// Vou permitir o método GET, PUT, POST DELETE
+    Response.setHeader("Access-Control-Allow-Origin","*");
+    Response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
     return connect.execSQLQuery("delete from cliente where id="+ Request.params.id, Response);
 });
 
