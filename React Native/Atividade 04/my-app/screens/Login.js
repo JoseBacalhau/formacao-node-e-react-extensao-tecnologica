@@ -22,6 +22,7 @@ export default function LoginScreen({ navigation }) {
       <Input style={{ borderColor: "black", borderWidth: 1,  alignItems: "center",   }}></Input>
       <Button
         title={"Login"}
+        onPress={() => navigation.navigate("Listar")}
         buttonStyle={{ backgroundColor: "rgba(78, 116, 289, 1)" }}
         containerStyle={{
           height: 40,
