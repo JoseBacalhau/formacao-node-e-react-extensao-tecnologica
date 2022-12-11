@@ -8,6 +8,7 @@ import LoginScreen from "./screens/login";
 import CadastroScreen from "./screens/Cadastro";
 import ListarScreen from "./screens/Listar";
 import CriarContatoScreen from "./screens/CriarContato";
+import AlterarScreen from "./screens/Alterar";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ function App() {
         <Stack.Screen name="Cadastro" component={CadastroScreen} />
       <Stack.Screen name="Listar" component={ListarScreen} />
       <Stack.Screen name="CriarContato" component={CriarContatoScreen} />      
+      <Stack.Screen name="AlterarDados" component={AlterarScreen} />      
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -42,8 +42,14 @@ export default function ListarScreen({ navigation, route }) {
       />
       <ScrollView>
       {list.map((linha, indice) => (
-        <ListItem key={indice} bottomDivider>
-          <ListItem.Content>
+        <ListItem key={indice} bottomDivider onPress={()=> navigation.navigate('AlterarDados',
+        {
+          nome:linha.nome,
+          email:linha.email,
+          telefone:linha.telefone,
+          id:linha.id
+        })}>
+          <ListItem.Content >
             <ListItem.Title>{linha.nome}</ListItem.Title>
             <ListItem.Subtitle>{linha.email}</ListItem.Subtitle>
           </ListItem.Content>

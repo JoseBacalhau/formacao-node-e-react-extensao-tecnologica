@@ -6,17 +6,32 @@ import { ListItem, Button, Input, Avatar } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import axios from "axios";
 
-export default function CriarContatoScreen({ navigation, route }) {
+export default function AlterarScreen({ navigation, route }) {
   const [getnome, setnome] = useState();
   const [getemail, setemail] = useState();
   const [gettelefone, settelefone] = useState();
+  const [getid, setid] = useState();
 
-  async function inserirDados() {
+    useEffect(() => {
+      if (route.params) {
+        const {nome} = route.params ;
+        const {email} = route.params ;
+        const {telefone} = route.params ;
+        const {id} = route.params ;
+
+        setnome(nome);
+        setemail(email);
+        settelefone(telefone);
+        setid(id);
+      }
+    }, []);
+    
+    function alterarDados() {
     axios
-      .post("http://professornilson.com/testeservico/clientes", {
+      .put("http://professornilson.com/testeservico/clientes/"+getId, {
         nome: getnome,
         email: getemail,
-        telefone: gettelefone
+        telefone: getemail,
       })
       .then(function (response) {
         console.log(response);
@@ -24,7 +39,7 @@ export default function CriarContatoScreen({ navigation, route }) {
       .catch(function (error) {
         console.log(error);
       });
-  }
+    }
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -47,8 +62,8 @@ export default function CriarContatoScreen({ navigation, route }) {
         value={gettelefone}
       ></TextInput>{" "}
       <Button
-        title={"Salvar"}
-        onPress={() => inserirDados()}
+        title={"Alterar dados"}
+        onPress={() => alterarDados()}
         buttonStyle={{ backgroundColor: "rgba(78, 116, 289, 1)" }}
         containerStyle={{
           height: 40,
